@@ -6,13 +6,12 @@ import { routes } from './app.routes';
 
 // Replace with your actual Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBMivoT-lNuaqF89z8-MrAvTo7Jny5DbtU",
-  authDomain: "abin-portfolio-2-8ce30.firebaseapp.com",
-  projectId: "abin-portfolio-2-8ce30",
-  storageBucket: "abin-portfolio-2-8ce30.firebasestorage.app",
-  messagingSenderId: "582451297295",
-  appId: "1:582451297295:web:bf960914138c8bb321377a",
-  measurementId: "G-0J94Q342Q7"
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_PROJECT_ID.appspot.com',
+  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+  appId: 'YOUR_APP_ID',
 };
 
 export const appConfig: ApplicationConfig = {
