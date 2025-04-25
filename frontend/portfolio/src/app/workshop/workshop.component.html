@@ -76,7 +76,24 @@
   <!-- Project Showcase -->
   <section class="mb-8">
     <h2 class="text-2xl font-bold mb-4">Projects Showcase</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    
+    <!-- Loading State -->
+    <div *ngIf="loading" class="flex justify-center items-center py-12">
+      <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+    </div>
+    
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+      <p>{{error}}</p>
+      <button 
+        (click)="fetchProjects()" 
+        class="mt-2 bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded text-sm">
+        Try Again
+      </button>
+    </div>
+    
+    <!-- Projects Grid -->
+    <div *ngIf="!loading && !error && projects.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div *ngFor="let project of projects" class="bg-white rounded-lg overflow-hidden shadow-md">
         <div class="bg-blue-600 text-white p-4">
           <h3 class="text-xl font-bold">{{project.name}}</h3>
@@ -91,6 +108,11 @@
           </p>
         </div>
       </div>
+    </div>
+    
+    <!-- No Projects State -->
+    <div *ngIf="!loading && !error && projects.length === 0" class="bg-gray-100 p-6 rounded text-center">
+      <p class="text-gray-600">No projects available at the moment.</p>
     </div>
   </section>
 
