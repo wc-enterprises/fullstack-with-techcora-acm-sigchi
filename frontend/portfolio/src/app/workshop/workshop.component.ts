@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Functions, httpsCallable } from '@angular/fire/functions';
 
 @Component({
   selector: 'app-workshop',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './workshop.component.html',
-  styleUrl: './workshop.component.css'
+  styleUrl: './workshop.component.css',
 })
 export class WorkshopComponent {
   // Personal Information
@@ -17,14 +18,15 @@ export class WorkshopComponent {
     gender: 'Male',
     location: 'Chennai, India',
     email: 'abinmec@techcoracorp.com',
-    interests: 'I\'m interested in the intersection of development, AI, and human creativity.'
+    interests:
+      "I'm interested in the intersection of development, AI, and human creativity.",
   };
 
   // Social Links
   socialLinks = {
     github: 'APabinec',
     linkedin: 'abin-paul-b64708194',
-    enterprises: 'tec-enterprises'
+    enterprises: 'tec-enterprises',
   };
 
   // Skills
@@ -36,7 +38,7 @@ export class WorkshopComponent {
     'Leadership & Mentoring',
     'Strategic Planning',
     'Risk Management',
-    'Networking'
+    'Networking',
   ];
 
   // Tech Stack
@@ -49,8 +51,8 @@ export class WorkshopComponent {
       'NestJS',
       'Firebase',
       'Tailwind',
-      'Git'
-    ]
+      'Git',
+    ],
   };
 
   // Summary Points
@@ -60,7 +62,7 @@ export class WorkshopComponent {
     'Excellent communication and collaboration skills.',
     'Well-versed in programming fundamentals and frameworks including NestJS and Angular.',
     'Founder of Techcora Corporation Pvt Ltd., a company dedicated to building impactful software projects for the Indian market.',
-    'Trained 50+ final and pre-final year college students on programming basics and introduced them to full-stack development, many of whom have gone on to secure positions at top companies such as Zoho, Accenture, and Ideas2It.'
+    'Trained 50+ final and pre-final year college students on programming basics and introduced them to full-stack development, many of whom have gone on to secure positions at top companies such as Zoho, Accenture, and Ideas2It.',
   ];
 
   // Education
@@ -68,18 +70,18 @@ export class WorkshopComponent {
     {
       degree: 'BE - EEE',
       institution: 'SSN College (Anna)',
-      year: '2018-2022'
+      year: '2018-2022',
     },
     {
       degree: '12',
       institution: 'St.Thomas Golden (92%)',
-      year: '2016-2018'
+      year: '2016-2018',
     },
     {
       degree: '10',
       institution: 'St.Thomas Guduvr (92%)',
-      year: '2015-2016'
-    }
+      year: '2015-2016',
+    },
   ];
 
   // Experience
@@ -88,7 +90,8 @@ export class WorkshopComponent {
       company: 'Surfboard Payments',
       role: 'Fin-tech company revolutionizing payment industry',
       period: '',
-      highlight: 'Build a generic KYB(Know Your Business) project to onboard global companies.',
+      highlight:
+        'Build a generic KYB(Know Your Business) project to onboard global companies.',
       description: [
         'Successfully spearheaded a KYB (Know Your Business) project that revolutionized the onboarding process for global companies. Achieved an outstanding 85% reduction in onboarding time by implementing automation, streamlining the process from 30 minutes to just 5 minutes.',
         'Integrated Khata payment method into the payment options offering, enhancing the user experience by providing a seamless and efficient payment process. This integration involved extensive API coordination, ensuring compatibility and smooth transactions for customers.',
@@ -96,18 +99,19 @@ export class WorkshopComponent {
         'Skilled at working with different digital ID verification systems and company data providers. Possess a deep understanding of API integration and continually work to broaden my knowledge and skill set in this area.',
         'Successfully recruited and led a team of 4 graduates straight out of college. Provided effective mentorship resulting in one team member being promoted to the role of team lead.',
         'Experienced in utilizing Linear, Notion, and Asana for effective project management. Possess a deep understanding of project management best practices and am constantly seeking ways to enhance my skills and deliver exceptional results.',
-        'Proficiently utilized NestJS, TypeScript and SQL to develop and deliver successful projects. Adept at leveraging these technologies to optimize performance, streamline processes, and enhance user experience.'
-      ]
+        'Proficiently utilized NestJS, TypeScript and SQL to develop and deliver successful projects. Adept at leveraging these technologies to optimize performance, streamline processes, and enhance user experience.',
+      ],
     },
     {
       company: 'Techcora Corporation',
       role: 'Software Development Company',
       period: '',
-      highlight: 'Building Wild Eye product which can be useful for agriculture and forest development.',
+      highlight:
+        'Building Wild Eye product which can be useful for agriculture and forest development.',
       description: [
         'Focused on the Wild Eye project aiming to mitigate animal raids on crops, resolve human-wildlife conflicts, and prevent animal accidents on railway lines.',
-        'Training interested candidates in software engineering fundamentals by regularly conducting 6-week internship programs. 50+ students have benefited from this so far.'
-      ]
+        'Training interested candidates in software engineering fundamentals by regularly conducting 6-week internship programs. 50+ students have benefited from this so far.',
+      ],
     },
     {
       company: 'Chikpuk',
@@ -124,8 +128,8 @@ export class WorkshopComponent {
         'Ensured robust security measures and compliance standards, safeguarding user data and maintaining platform integrity.',
         'Led a team of developers and designers, fostering a collaborative environment that encouraged innovation and excellence.',
         'Implemented agile methodologies, reducing development cycles and accelerating time-to-market for new features.',
-        'Received accolades from stakeholders for delivering a transformative solution that significantly boosted merchant engagement and revenue.'
-      ]
+        'Received accolades from stakeholders for delivering a transformative solution that significantly boosted merchant engagement and revenue.',
+      ],
     },
     {
       company: 'Elegance',
@@ -144,36 +148,47 @@ export class WorkshopComponent {
         'Customer Retention: Client retention rates have improved by approximately 25%, thanks to personalized follow-ups and exclusive promotions facilitated by the software.',
         'Appointment Management: Automated reminders have resulted in a 25% reduction in no-show appointments, optimizing scheduling efficiency.',
         'New Client Acquisition: Targeted marketing efforts have led to a 30% increase in first-time clients, expanding the customer base significantly.',
-        'Operational Efficiency: Integration of Point-of-Sale (POS) systems has contributed to a 15% boost in revenue by streamlining transactions and improving financial tracking.'
-      ]
-    }
+        'Operational Efficiency: Integration of Point-of-Sale (POS) systems has contributed to a 15% boost in revenue by streamlining transactions and improving financial tracking.',
+      ],
+    },
   ];
 
-  // Projects
-  projects = [
-    {
-      name: 'Surfboard Payments',
-      type: 'KYB Project for Global Companies',
-      highlight: '85% reduction in onboarding time',
-      description: 'Successfully spearheaded a KYB project that revolutionized the onboarding process for global companies by implementing automation.'
-    },
-    {
-      name: 'Chikpuk',
-      type: 'Quick Commerce Application',
-      highlight: '20% increase in sales',
-      description: 'Developed a quick commerce marketplace platform with world-class UI/UX and scalable infrastructure for multiple merchants.'
-    },
-    {
-      name: 'Elegance',
-      type: 'Salon Management ERP',
-      highlight: '30% increase in first-time clients',
-      description: 'Comprehensive billing software with appointment booking, subscription management and dual-interface solution.'
-    },
-    {
-      name: 'Wild Eye',
-      type: 'Agriculture and Forest Development',
-      highlight: 'Mitigating animal raids on crops',
-      description: 'Project aiming to resolve human-wildlife conflicts and prevent animal accidents on railway lines.'
-    }
-  ];
+  loading = false;
+  error: string | null = null;
+
+  constructor(private functions: Functions) {}
+
+  ngOnInit() {
+    this.fetchProjects();
+  }
+
+  projects: any[] = [];
+
+  fetchProjects() {
+    this.loading = true;
+    this.error = null;
+
+    const getProjectsFunction = httpsCallable(this.functions, 'getProjects');
+
+    getProjectsFunction({})
+      .then((result: any) => {
+        if (
+          result.data &&
+          result.data.success &&
+          Array.isArray(result.data.data)
+        ) {
+          this.projects = result.data.data;
+        } else {
+          this.error = 'Received invalid data format from server';
+          console.error('Invalid data format:', result);
+        }
+      })
+      .catch((error) => {
+        this.error = `Error fetching projects: ${error.message}`;
+        console.error('Error fetching projects:', error);
+      })
+      .finally(() => {
+        this.loading = false;
+      });
+  }
 }
