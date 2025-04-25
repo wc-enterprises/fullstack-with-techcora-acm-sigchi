@@ -8,3 +8,6 @@ typings/
 # Node.js dependency directory
 node_modules/
 *.local
+.env.abin-portfolio-2-8ce30
+.firebaserc
+firebase.json

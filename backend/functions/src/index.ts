@@ -1,20 +1,19 @@
 import { neon } from "@neondatabase/serverless";
-import { defineSecret } from "firebase-functions/params";
+import { defineString } from "firebase-functions/params";
 import { onCall } from "firebase-functions/v2/https";
 
 // Define secrets for your Neon DB connection
-const neonConnectionString = defineSecret("NEON_CONNECTION_STRING");
+const NEON_CONNECTION_STRING = defineString("NEON_CONNECTION_STRING");
 
 // onCall function to get all projects
 export const getProjects = onCall(
   {
-    secrets: [neonConnectionString],
     maxInstances: 10,
   },
   async (request) => {
     try {
       // Create a Neon SQL client with the connection string
-      const sql = neon(neonConnectionString.value());
+      const sql = neon(NEON_CONNECTION_STRING.value());
 
       // Query all projects
       const projects = await sql`SELECT * FROM projects ORDER BY id ASC`;
